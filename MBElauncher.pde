@@ -20,7 +20,7 @@ boolean jarReady = false;
 void setup() {
   logo = imgFromString(logotext);
   size(360, 240);
-  //((PGraphicsOpenGL)g).textureSampling(2);
+  ((PGraphicsOpenGL)g).textureSampling(2);
 }
 
 boolean hasMostRecent() {
