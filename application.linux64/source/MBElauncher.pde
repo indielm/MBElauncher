@@ -2,6 +2,11 @@ import java.io.*;
 import java.net.*;
 import java.nio.file.FileSystem.*;
 
+/*
+  Mindustry bleeding edge autoupdate and launcher by Desktop aka indielm
+  Source for Processing 3.3.6
+*/
+
 PImage logo;
 String JENKINS_URL =  "https://jenkins.hellomouse.net/job/mindustry/";
 String LATEST_URL = JENKINS_URL + "lastStableBuild/";
@@ -14,7 +19,7 @@ boolean jarReady = false;
 
 void setup() {
   logo = imgFromString(logotext);
-  size(360, 240, P2D);
+  size(360, 240,P2D);
   ((PGraphicsOpenGL)g).textureSampling(2);
 }
 
@@ -86,6 +91,9 @@ void draw() {
     noStroke();
     fill(50,255,50);
     rect(150,64,dlProgress,14);
+  }
+  else {
+    text("Checking latest version...", 100, 40);
   }
   translate(width/2, height/2);
   

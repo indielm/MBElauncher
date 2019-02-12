@@ -19,7 +19,7 @@ boolean jarReady = false;
 
 void setup() {
   logo = imgFromString(logotext);
-  size(360, 240);
+  size(360, 240,P2D);
   ((PGraphicsOpenGL)g).textureSampling(2);
 }
 
@@ -91,6 +91,9 @@ void draw() {
     noStroke();
     fill(50,255,50);
     rect(150,64,dlProgress,14);
+  }
+  else {
+    text("Checking latest version...", 100, 40);
   }
   translate(width/2, height/2);
   

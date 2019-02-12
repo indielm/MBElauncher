@@ -22,6 +22,11 @@ public class MBElauncher extends PApplet {
 
 
 
+/*
+  Mindustry bleeding edge autoupdate and launcher by Desktop aka indielm
+  Source for Processing 3.3.6
+*/
+
 PImage logo;
 String JENKINS_URL =  "https://jenkins.hellomouse.net/job/mindustry/";
 String LATEST_URL = JENKINS_URL + "lastStableBuild/";
@@ -107,6 +112,9 @@ public void draw() {
     fill(50,255,50);
     rect(150,64,dlProgress,14);
   }
+  else {
+    text("Checking latest version...", 100, 40);
+  }
   translate(width/2, height/2);
   
   image(logo, 0, 0, logo.width*4, logo.height*4);
@@ -151,7 +159,7 @@ public PImage imgFromString(String data) {
   img.updatePixels();
   return img;
 }
-  public void settings() {  size(360, 240, P2D); }
+  public void settings() {  size(360, 240,P2D); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "MBElauncher" };
     if (passedArgs != null) {
