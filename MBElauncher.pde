@@ -23,14 +23,20 @@ float dlProgress = 0,  dlProgressSmooth = 0;
 
 void settings() {
   size(600, 240, P3D);
+  // PImage icon = loadImage("icon.png");
+  PJOGL.setIcon("router.png");
 }
-
+ PImage piRouter;
 void setup() {
   logo = requestImage("logotext.png");
   shader = loadShader("menu.glsl");
   shader.set("resolution", float(width), float(height));  
   font = createFont("pixel_UNEDITED.ttf", 36);
-  router = texturedCube(requestImage("router.png"));
+   piRouter = loadImage("routerb.png");
+  
+
+  router = texturedCube(piRouter);
+   
   ((PGraphicsOpenGL)g).textureSampling(3);
   ortho();
   lights();
@@ -38,6 +44,17 @@ void setup() {
   textFont(font);
   textAlign(CENTER);
 }
+
+void changeAppIcon(PImage img) {
+  final PGraphics pg = createGraphics(16, 16, JAVA2D);
+
+  pg.beginDraw();
+  pg.image(img, 0, 0, 16, 16);
+  pg.endDraw();
+  pg.loadPixels();
+  frame.setIconImage(pg.image);
+}
+
 
 void bgShader() {
   background(25);
@@ -48,6 +65,7 @@ void bgShader() {
 }
 
 void draw() {
+   changeAppIcon(piRouter);
   bgShader();
   fill(255);
   if (tweak && (dlProgress += 0.1) >= 100) dlProgress = 0;
